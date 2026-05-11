@@ -9,9 +9,14 @@
     body { font-family: 'Raleway', sans-serif; background: var(--deep); color: var(--cream); margin: 0; padding: 0; line-height: 1.6; }
     .container { max-width: 900px; margin: 0 auto; padding: 20px; }
     
-    header { text-align: center; padding: 40px 0; }
-    .hero-img { width: 100%; max-width: 400px; border-radius: 20px; margin-bottom: 20px; border: 3px solid var(--gold); }
-    h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
+    header { text-align: center; padding: 20px 0; }
+    /* Balonlu görsel en üstte */
+    .hero-banner { width: 100%; max-width: 700px; border-radius: 20px; margin-bottom: 20px; border: 3px solid var(--gold); }
+    /* Profil fotoğrafı */
+    .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--terracotta); margin-bottom: 15px; }
+    
+    h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 10px 0; }
+    .tagline { color: var(--gold); font-weight: bold; margin-bottom: 20px; }
     
     .section-title { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin: 40px 0 20px; font-family: 'Playfair Display', serif; }
     
@@ -33,9 +38,12 @@
 
 <div class="container">
   <header>
-    <img src="images/1.jpg" alt="Fatih Mehmet Canıtez" class="hero-img">
+    <!-- Balonlu görsel en üstte -->
+    <img src="images/2.jpg" alt="Kapadokya Balon" class="hero-banner">
+    <!-- Profil fotoğrafın -->
+    <img src="images/1.jpg" alt="Fatih Mehmet Canıtez" class="profile-img">
     <h1>Fatih Mehmet Canıtez</h1>
-    <p>Dil Eğitmeni & Kültürel Danışman / Language Educator & Cultural Consultant</p>
+    <p class="tagline">Dil Eğitmeni & Kültürel Danışman / Language Educator & Cultural Consultant</p>
   </header>
 
   <!-- DİL VE EĞİTİM -->
@@ -59,7 +67,6 @@
   <h2 class="section-title">Kültür & Turizm / Culture & Tourism</h2>
   <div class="grid">
     <a href="https://fmemo75-prog.github.io/carpetguide/Cappodoce" class="card">
-      <img src="images/2.jpg" alt="Kapadokya">
       <h3>Kapadokya Rehberi / Cappadocia Guide</h3>
       <p>Bölgenin gizemli vadileri ve gezi rotaları.</p>
     </a>
