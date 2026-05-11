@@ -28,400 +28,118 @@
     /* ── HERO ── */
     .hero {
       position: relative;
-      min-height: 100vh;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 2rem;
-      overflow: hidden;
     }
 
-    /* Kapadokya balon arka planı */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(192,98,47,0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 60% at 15% 70%, rgba(42,107,107,0.22) 0%, transparent 55%),
-        radial-gradient(ellipse 80% 80% at 50% 50%, rgba(26,16,8,0.9) 0%, transparent 100%);
+      background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(26,16,8,0.95) 0%, transparent 100%);
       z-index: 0;
     }
 
-    /* Dekoratif balonlar (CSS) */
-    .balloon {
-      position: absolute;
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      opacity: 0.13;
-      animation: float 8s ease-in-out infinite;
-    }
-    .balloon-1 { width: 180px; height: 220px; background: var(--terracotta); top: 8%; right: 12%; animation-delay: 0s; }
-    .balloon-2 { width: 120px; height: 150px; background: var(--gold); top: 20%; left: 8%; animation-delay: 2s; }
-    .balloon-3 { width: 90px; height: 110px; background: var(--teal); bottom: 25%; right: 25%; animation-delay: 4s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-18px); }
-    }
-
-    /* Noktalı desen */
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(212,168,75,0.07) 1px, transparent 1px);
-      background-size: 36px 36px;
-      z-index: 0;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      animation: fadeUp 1s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s ease forwards;
-    }
+    .hero-content { position: relative; z-index: 1; }
 
     .hero-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.01em;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
       color: var(--cream);
-      opacity: 0;
-      animation: fadeUp 0.8s 0.4s ease forwards;
+      margin-bottom: 1rem;
     }
 
-    .hero-name span {
-      color: var(--terracotta);
-      font-style: italic;
-    }
+    .hero-name span { color: var(--terracotta); font-style: italic; }
 
-    .hero-tagline {
-      margin-top: 1.2rem;
-      font-size: clamp(0.85rem, 2vw, 1.05rem);
-      font-weight: 300;
-      color: var(--sand);
-      letter-spacing: 0.05em;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.6s ease forwards;
-    }
+    .hero-tagline { color: var(--sand); font-size: 1.1rem; letter-spacing: 0.1em; }
 
-    .divider {
-      margin: 2rem auto;
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0;
-      animation: fadeUp 0.8s 0.7s ease forwards;
-    }
-
-    /* ── CONTACT BAR ── */
-    .contact-bar {
-      display: flex;
-      gap: 1.2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.85s ease forwards;
-    }
-
-    .contact-pill {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(212,168,75,0.25);
-      border-radius: 999px;
-      padding: 0.45rem 1.1rem;
-      font-size: 0.82rem;
-      color: var(--sand);
-      text-decoration: none;
-      transition: background 0.25s, border-color 0.25s, transform 0.2s;
-    }
-    .contact-pill:hover {
-      background: rgba(192,98,47,0.2);
-      border-color: var(--terracotta);
-      transform: translateY(-2px);
-    }
-    .contact-pill svg { width: 14px; height: 14px; fill: var(--gold); flex-shrink: 0; }
-
-    /* ── CARDS SECTION ── */
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 4rem 2rem 6rem;
-    }
+    /* ── SECTION ── */
+    .section { max-width: 1000px; margin: 0 auto; padding: 2rem; }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-style: italic;
+      font-size: 1.5rem;
       color: var(--gold);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      margin-bottom: 2rem;
       text-align: center;
-      margin-bottom: 3rem;
+      border-bottom: 1px solid rgba(212,168,75,0.2);
+      padding-bottom: 1rem;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
+      margin-bottom: 3rem;
     }
 
     .card {
-      position: relative;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(212,168,75,0.15);
-      border-radius: 16px;
-      padding: 2rem 1.8rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,168,75,0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
       text-decoration: none;
       color: var(--cream);
-      overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s, background 0.3s;
-      cursor: pointer;
+      transition: 0.3s;
     }
+    .card:hover { border-color: var(--terracotta); transform: translateY(-5px); }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 0.5rem; }
+    .card-desc { font-size: 0.9rem; color: rgba(245,237,224,0.7); }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(192,98,47,0.12) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s;
-      border-radius: inherit;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(192,98,47,0.5);
-      background: rgba(255,255,255,0.07);
-    }
-    .card:hover::before { opacity: 1; }
-
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-desc {
-      font-size: 0.82rem;
-      font-weight: 300;
-      color: rgba(245,237,224,0.6);
-      line-height: 1.6;
-    }
-
-    .card-arrow {
-      position: absolute;
-      bottom: 1.4rem;
-      right: 1.4rem;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1px solid rgba(212,168,75,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      color: var(--gold);
-      transition: background 0.2s, transform 0.2s;
-    }
-    .card:hover .card-arrow {
-      background: var(--terracotta);
-      border-color: var(--terracotta);
-      transform: translate(2px,-2px);
-    }
-
-    /* Accent renkler */
-    .accent-teal  { --card-accent: var(--teal); }
-    .accent-terra { --card-accent: var(--terracotta); }
-    .accent-gold  { --card-accent: var(--gold); }
-
-    .accent-teal::before  { background: linear-gradient(135deg, rgba(42,107,107,0.18) 0%, transparent 60%) !important; }
-    .accent-gold::before  { background: linear-gradient(135deg, rgba(212,168,75,0.15) 0%, transparent 60%) !important; }
-
-    /* ── SOCIAL ── */
-    .social-row {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 3rem;
-    }
-
-    .social-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.4rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--sand);
-      text-decoration: none;
-      font-size: 0.82rem;
-      transition: all 0.25s;
-    }
-    .social-btn:hover { background: rgba(192,98,47,0.25); border-color: var(--terracotta); }
-    .social-btn svg { width: 16px; height: 16px; fill: currentColor; }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.75rem;
-      color: rgba(245,237,224,0.25);
-      letter-spacing: 0.1em;
-      border-top: 1px solid rgba(212,168,75,0.08);
-    }
-
-    /* scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    /* ── CONTACT ── */
+    .contact-bar { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+    .btn { padding: 0.8rem 1.5rem; border-radius: 999px; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+    .btn-primary { background: var(--terracotta); color: white; }
+    .btn-primary:hover { background: var(--gold); }
   </style>
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="balloon balloon-1"></div>
-  <div class="balloon balloon-2"></div>
-  <div class="balloon balloon-3"></div>
-
   <div class="hero-content">
-    <p class="hero-eyebrow">Kapadokya · Türkiye</p>
+    <h1 class="hero-name">Fatih Mehmet <span>Canıtez</span></h1>
+    <p class="hero-tagline">Dil Eğitmeni & Kültürel Danışman</p>
+  </div>
+</section>
 
-    <h1 class="hero-name">
-      Fatih Mehmet<br><span>Canıtez</span>
-    </h1>
-
-    <p class="hero-tagline">Rehber · Dil Öğretmeni · Halı & Kilim Uzmanı</p>
-
-    <div class="divider"></div>
-
-    <div class="contact-bar">
-      <a class="contact-pill" href="tel:+905054466700">
-        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-        +90 505 446 67 00
-      </a>
-      <a class="contact-pill" href="https://wa.me/905054466700" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
+<!-- DİL EĞİTİMİ -->
+<section class="section">
+  <h2 class="section-title">Dil Eğitimi / Language Lessons</h2>
+  <div class="cards">
+    <div class="card">
+      <p class="card-title">Yabancılara Türkçe / Turkish for Foreigners</p>
+      <p class="card-desc">Pratik, hızlı ve etkili Türkçe dersleri. Günlük iletişim odaklı eğitim.</p>
+    </div>
+    <div class="card">
+      <p class="card-title">Fransızca & İtalyanca</p>
+      <p class="card-desc">Kişiye özel Fransızca ve İtalyanca dil programları.</p>
     </div>
   </div>
 </section>
 
-<!-- HİZMETLER -->
+<!-- KÜLTÜR VE TURİZM -->
 <section class="section">
-  <p class="section-title reveal">Hizmetler &amp; Bağlantılar</p>
-
+  <h2 class="section-title">Kültür & Turizm / Culture & Tourism</h2>
   <div class="cards">
-
-    <a class="card accent-teal reveal" href="#" target="_blank">
-      <span class="card-icon">🏛️</span>
+    <div class="card">
       <p class="card-title">Kapadokya Rehberliği</p>
-      <p class="card-desc">Peribacaları, yeraltı şehirleri ve vadiler — unutulmaz bir Kapadokya deneyimi.</p>
-      <div class="card-arrow">→</div>
-    </a>
-
-    <a class="card accent-terra reveal" href="#" target="_blank">
-      <span class="card-icon">🇫🇷</span>
-      <p class="card-title">Fransızca &amp; İtalyanca</p>
-      <p class="card-desc">Video dersler ve özel öğretim ile Fransızca ve İtalyanca öğrenin.</p>
-      <div class="card-arrow">→</div>
-    </a>
-
-    <a class="card accent-teal reveal" href="#" target="_blank">
-      <span class="card-icon">🇹🇷</span>
-      <p class="card-title">Türkçe Öğren</p>
-      <p class="card-desc">Yabancılar için pratik Türkçe dersleri — günlük hayatta işe yarayan içerikler.</p>
-      <div class="card-arrow">→</div>
-    </a>
-
-    <a class="card accent-gold reveal" href="#" target="_blank">
-      <span class="card-icon">🪴</span>
-      <p class="card-title">Global Halı &amp; Kilim</p>
-      <p class="card-desc">El dokuma özgün Türk halıları ve kilimleri — koleksiyon ve satış.</p>
-      <div class="card-arrow">→</div>
-    </a>
-
-    <a class="card accent-terra reveal" href="https://www.youtube.com/@fatihmehmett" target="_blank">
-      <span class="card-icon">▶️</span>
-      <p class="card-title">YouTube Kanalı</p>
-      <p class="card-desc">Dil dersleri ve Kapadokya içeriklerini izlemek için kanala abone olun.</p>
-      <div class="card-arrow">→</div>
-    </a>
-
-    <a class="card accent-teal reveal" href="https://maps.google.com" target="_blank">
-      <span class="card-icon">📍</span>
-      <p class="card-title">Konum &amp; Harita</p>
-      <p class="card-desc">Kapadokya, Aksaray bölgesinde buluşma noktamızı haritada görün.</p>
-      <div class="card-arrow">→</div>
-    </a>
-
-  </div>
-
-  <!-- Sosyal medya -->
-  <div class="social-row reveal">
-    <a class="social-btn" href="#" target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      Facebook
-    </a>
-    <a class="social-btn" href="#" target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      Instagram
-    </a>
+      <p class="card-desc">Kapadokya bölgesinin gizemli vadileri ve yeraltı şehirleri için özel rehberlik.</p>
+    </div>
+    <div class="card">
+      <p class="card-title">Türk Halı & Kilim Sanatı</p>
+      <p class="card-desc">Geleneksel dokuma sanatı hakkında uzman danışmanlık ve koleksiyon bilgisi.</p>
+    </div>
   </div>
 </section>
 
-<footer>
-  © 2026 Fatih Mehmet Canıtez · Kapadokya, Türkiye
-</footer>
+<div style="text-align: center; padding-bottom: 4rem;">
+  <a href="https://wa.me/905054466700?text=Dil%20dersleri%20veya%20dan%C4%B1%C5%9Fmanl%C4%B1k%20hakk%C4%B1nda%20bilgi%20istiyorum" class="btn btn-primary">İletişime Geç (WhatsApp)</a>
+</div>
 
-<script>
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
 </body>
 </html>
