@@ -2,91 +2,518 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fatih Mehmet Canıtez | Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fatih Mehmet Canıtez | Dil Eğitmeni & Kültürel Danışman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --terracotta: #c0622f; --gold: #d4a84b; --cream: #f5ede0; --deep: #1a1008; }
-    body { font-family: 'Raleway', sans-serif; background: var(--deep); color: var(--cream); margin: 0; padding: 0; line-height: 1.6; }
-    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-    
-    header { text-align: center; padding: 20px 0; }
-    /* Balonlu görsel en üstte */
-    .hero-banner { width: 100%; max-width: 700px; border-radius: 20px; margin-bottom: 20px; border: 3px solid var(--gold); }
-    /* Profil fotoğrafı */
-    .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--terracotta); margin-bottom: 15px; }
-    
-    h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 10px 0; }
-    .tagline { color: var(--gold); font-weight: bold; margin-bottom: 20px; }
-    
-    .section-title { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin: 40px 0 20px; font-family: 'Playfair Display', serif; }
-    
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; text-decoration: none; color: var(--cream); transition: 0.3s; border: 1px solid rgba(212,168,75,0.2); }
-    .card:hover { transform: translateY(-5px); border-color: var(--terracotta); background: rgba(255,255,255,0.1); }
-    .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-    .card h3 { color: var(--gold); margin: 0 0 10px 0; font-size: 1.1rem; }
-    .card p { font-size: 0.85rem; opacity: 0.9; }
+    :root {
+      --deep: #1a1008;
+      --warm: #8b5e3c;
+      --gold: #c9a84c;
+      --sand: #f5ede0;
+      --cream: #fdf8f2;
+      --text: #2c1e0f;
+      --muted: #7a6652;
+      --accent: #c44b2b;
+      --carpet1: #7b3030;
+      --carpet2: #2e5e4e;
+    }
 
-    .btn-main { display: block; text-align: center; background: var(--terracotta); color: white; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 40px 0; transition: 0.3s; }
-    .btn-main:hover { background: var(--gold); }
-    
-    .social-row { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
-    .social-link { color: var(--gold); text-decoration: none; font-weight: bold; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      min-height: 360px;
+      max-height: 520px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+      filter: brightness(0.55) saturate(1.1);
+      transform: scale(1.04);
+      animation: heroZoom 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.10); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,5,2,0.25) 0%,
+        rgba(10,5,2,0.55) 60%,
+        rgba(10,5,2,0.80) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 3rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 3.6rem);
+      color: #fff;
+      letter-spacing: 0.03em;
+      text-align: center;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+      animation: fadeUp 1s ease both;
+    }
+
+    .hero-sub {
+      margin-top: 0.6rem;
+      font-size: clamp(0.85rem, 2vw, 1.05rem);
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 300;
+      text-align: center;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── PROFILE STRIP ── */
+    .profile-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.8rem;
+      padding: 2.4rem 1.5rem;
+      background: var(--deep);
+    }
+
+    .profile-img {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 0 5px rgba(201,168,76,0.18);
+      flex-shrink: 0;
+      animation: fadeUp 1s ease 0.4s both;
+    }
+
+    .profile-info { animation: fadeUp 1s ease 0.6s both; }
+
+    .profile-info h2 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1.35rem;
+      letter-spacing: 0.02em;
+    }
+
+    .profile-info p {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+      font-weight: 300;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.38rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(201,168,76,0.45);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .social-btn:hover { background: rgba(201,168,76,0.12); border-color: var(--gold); }
+
+    .social-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.35;
+    }
+
+    .section-label span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      color: var(--warm);
+      white-space: nowrap;
+      font-style: italic;
+    }
+
+    .section-sub {
+      display: block;
+      text-align: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: -1.4rem;
+      margin-bottom: 2.2rem;
+    }
+
+    /* ── CARDS ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.4rem;
+      margin-bottom: 3.8rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 18px rgba(139,94,60,0.1);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(139,94,60,0.2);
+    }
+
+    .card-thumb {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+      background: var(--sand);
+    }
+
+    .card-thumb-placeholder {
+      width: 100%;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--sand), #e8d8c4);
+    }
+
+    .card-body {
+      padding: 1.2rem 1.3rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.12rem;
+      color: var(--deep);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .card-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--warm);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    /* carpet card gets a coloured top bar */
+    .card.carpet { border-top: 4px solid var(--carpet1); }
+    .card.culture { border-top: 4px solid var(--carpet2); }
+    .card.language { border-top: 4px solid var(--gold); }
+
+    /* ── WHATSAPP CTA ── */
+    .cta-banner {
+      background: linear-gradient(135deg, #1a5c3a 0%, #0d3d26 100%);
+      border-radius: 16px;
+      padding: 2.2rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      box-shadow: 0 8px 32px rgba(13,61,38,0.25);
+    }
+
+    .cta-text h3 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    .cta-text p { color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-top: 0.3rem; }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+
+    .cta-btn:hover { background: #1ebe5a; transform: scale(1.03); }
+
+    .cta-btn svg { width: 20px; height: 20px; fill: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--deep);
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    footer .gold { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 560px) {
+      .profile-strip { flex-direction: column; text-align: center; }
+      .social-row { justify-content: center; }
+      .cards { grid-template-columns: 1fr; }
+      .cta-banner { flex-direction: column; text-align: center; }
+    }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <header>
-    <!-- Balonlu görsel en üstte -->
-    <img src="images/2.jpg" alt="Kapadokya Balon" class="hero-banner">
-    <!-- Profil fotoğrafın -->
-    <img src="images/1.jpg" alt="Fatih Mehmet Canıtez" class="profile-img">
-    <h1>Fatih Mehmet Canıtez</h1>
-    <p class="tagline">Dil Eğitmeni & Kültürel Danışman / Language Educator & Cultural Consultant</p>
-  </header>
-
-  <!-- DİL VE EĞİTİM -->
-  <h2 class="section-title">Dil Eğitimi / Language Education</h2>
-  <div class="grid">
-    <a href="https://fmemo75-prog.github.io/turkce-ders/index.html" class="card">
-      <h3>Yabancılara Türkçe / Turkish for Foreigners</h3>
-      <p>Pratik ve hızlı Türkçe öğrenim portalı.</p>
-    </a>
-    <a href="https://fmemo75-prog.github.io/turkce-ders/courses.html" class="card">
-      <h3>Ders Videoları / Lesson Videos</h3>
-      <p>YouTube Fransızca & İtalyanca oynatma listeleri.</p>
-    </a>
-    <a href="https://ikinciyabancidilfransizca.blogspot.com/" class="card">
-      <h3>Eğitim Bloğu / Education Blog</h3>
-      <p>Fransızca, İtalyanca ve Briç dersleri.</p>
-    </a>
+<!-- ── HERO ── -->
+<section class="hero">
+  <img class="hero-bg"
+    src="https://fmemo75-prog.github.io/fatihmehmetcanitez/images/2.jpg"
+    alt="Kapadokya balonları" />
+  <div class="hero-overlay">
+    <h1 class="hero-title">Fatih Mehmet Canıtez</h1>
+    <p class="hero-sub">Dil Eğitmeni &amp; Kültürel Danışman&ensp;·&ensp;Language Educator &amp; Cultural Consultant</p>
   </div>
+</section>
 
-  <!-- KÜLTÜR VE TURİZM -->
-  <h2 class="section-title">Kültür & Turizm / Culture & Tourism</h2>
-  <div class="grid">
-    <a href="https://fmemo75-prog.github.io/carpetguide/Cappodoce" class="card">
-      <h3>Kapadokya Rehberi / Cappadocia Guide</h3>
-      <p>Bölgenin gizemli vadileri ve gezi rotaları.</p>
-    </a>
-    <a href="https://fmemo75-prog.github.io/carpetguide/" class="card">
-      <img src="images/3.jpg" alt="Halı Sanatı">
-      <h3>Türk Halı & Kilimleri / Turkish Carpets</h3>
-      <p>El dokuması sanat eserleri ve uzmanlık.</p>
-    </a>
+<!-- ── PROFILE STRIP ── -->
+<div class="profile-strip">
+  <img class="profile-img"
+    src="https://fmemo75-prog.github.io/fatihmehmetcanitez/images/1.jpg"
+    alt="Fatih Mehmet Canıtez" />
+  <div class="profile-info">
+    <h2>Fatih Mehmet Canıtez</h2>
+    <p>Nevşehir / Kapadokya · Türkiye</p>
+    <div class="social-row">
+      <!-- YouTube -->
+      <a class="social-btn" href="https://www.youtube.com/@fatihmehmetcantez" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        YouTube
+      </a>
+      <!-- Facebook -->
+      <a class="social-btn" href="https://www.facebook.com/fmemo75?locale=tr_TR" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M22.7 0H1.3C.6 0 0 .6 0 1.3v21.4C0 23.4.6 24 1.3 24h11.5v-9.3H9.7v-3.6h3.1V8.4c0-3.1 1.9-4.8 4.7-4.8 1.3 0 2.7.1 4 .2v3.2h-2.7c-1.5 0-1.8.7-1.8 1.7v2.3h3.6l-.5 3.6h-3.1V24h6.1c.7 0 1.3-.6 1.3-1.3V1.3C24 .6 23.4 0 22.7 0z"/></svg>
+        Facebook
+      </a>
+      <!-- Instagram -->
+      <a class="social-btn" href="https://www.instagram.com/fatih_mehmet_canitez?igsh=aDdnZGRzdXV2cjFn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.2 4.9 1.8 5.1 5.1.1 1.3.1 1.7.1 4.9 0 3.2 0 3.6-.1 4.9-.2 3.3-1.8 4.9-5.1 5.1-1.3.1-1.7.1-4.9.1-3.2 0-3.6 0-4.9-.1-3.3-.2-4.9-1.8-5.1-5.1C2 16.6 2 16.2 2 13c0-3.2 0-3.6.1-4.9.2-3.3 1.8-4.9 5.1-5.1 1.3-.1 1.7-.1 4.9-.1zM12 0C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 5 .2 4.3 2.6 6.7 7 6.9 1.3.1 1.7.1 5 .1 3.3 0 3.7 0 5-.1 4.3-.2 6.7-2.6 6.9-7 .1-1.3.1-1.7.1-5 0-3.3 0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+        Instagram
+      </a>
+    </div>
   </div>
-
-  <!-- İLETİŞİM VE SOSYAL -->
-  <a href="https://api.whatsapp.com/send/?phone=905054466760&text=Dil+dersleri+hakk%C4%B1nda+bilgi+istiyorum&type=phone_number&app_absent=0" class="btn-main">İletişim (WhatsApp) / Contact</a>
-
-  <div class="social-row">
-    <a href="https://www.youtube.com/@fatihmehmetcantez" class="social-link">YouTube</a>
-    <a href="https://www.facebook.com/fmemo75?locale=tr_TR" class="social-link">Facebook</a>
-    <a href="https://www.instagram.com/fatih_mehmet_canitez?igsh=aDdnZGRzdXV2cjFn" class="social-link">Instagram</a>
-  </div>
-
 </div>
+
+<!-- ── MAIN ── -->
+<main>
+
+  <!-- ════ SECTION 1: DİL DERSLERİ ════ -->
+  <div class="section-label"><span>Dil Dersleri</span></div>
+  <span class="section-sub">Language Courses</span>
+
+  <div class="cards">
+
+    <!-- Türkçe -->
+    <a class="card language" href="https://fmemo75-prog.github.io/turkce-ders/index.html" target="_blank" rel="noopener">
+      <div class="card-thumb-placeholder">🇹🇷</div>
+      <div class="card-body">
+        <span class="card-tag">Türkçe · Turkish</span>
+        <h3>Yabancılara Türkçe<br><em style="font-size:0.95em;color:#8b5e3c">Turkish for Foreigners</em></h3>
+        <p>Pratik ve hızlı Türkçe öğrenim portalı. Fast-track Turkish learning platform for international learners.</p>
+        <span class="card-arrow">Portala Git →</span>
+      </div>
+    </a>
+
+    <!-- Ders Videoları -->
+    <a class="card language" href="https://fmemo75-prog.github.io/turkce-ders/courses.html" target="_blank" rel="noopener">
+      <div class="card-thumb-placeholder">🎬</div>
+      <div class="card-body">
+        <span class="card-tag">Video · Cours</span>
+        <h3>Fransızca &amp; İtalyanca<br><em style="font-size:0.95em;color:#8b5e3c">French &amp; Italian Lessons</em></h3>
+        <p>YouTube oynatma listeleri ile adım adım Fransızca ve İtalyanca. Step-by-step playlists on YouTube.</p>
+        <span class="card-arrow">Derslere Bak →</span>
+      </div>
+    </a>
+
+    <!-- Blog -->
+    <a class="card language" href="https://ikinciyabancidilfransizca.blogspot.com/" target="_blank" rel="noopener">
+      <div class="card-thumb-placeholder">📝</div>
+      <div class="card-body">
+        <span class="card-tag">Blog · Eğitim</span>
+        <h3>Dil &amp; Briç Bloğu<br><em style="font-size:0.95em;color:#8b5e3c">Language &amp; Bridge Blog</em></h3>
+        <p>Fransızca, İtalyanca ve Briç dersleri içerikleri. Articles on French, Italian and Bridge card-game.</p>
+        <span class="card-arrow">Bloğu Oku →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ════ SECTION 2: DİĞERLERİ ════ -->
+  <div class="section-label"><span>Kültür &amp; Turizm</span></div>
+  <span class="section-sub">Culture &amp; Tourism</span>
+
+  <div class="cards">
+
+    <!-- Kapadokya Rehberi -->
+    <a class="card culture" href="https://fmemo75-prog.github.io/carpetguide/Cappodoce" target="_blank" rel="noopener">
+      <img class="card-thumb"
+        src="https://fmemo75-prog.github.io/fatihmehmetcanitez/images/2.jpg"
+        alt="Kapadokya Rehberi" />
+      <div class="card-body">
+        <span class="card-tag">Turizm · Guide</span>
+        <h3>Kapadokya Rehberi<br><em style="font-size:0.95em;color:#2e5e4e">Cappadocia Guide</em></h3>
+        <p>Bölgenin gizemli vadileri, peri bacaları ve gezi rotaları. Mysterious valleys, fairy chimneys &amp; tours.</p>
+        <span class="card-arrow">Rehbere Git →</span>
+      </div>
+    </a>
+
+    <!-- Halılar -->
+    <a class="card carpet" href="https://fmemo75-prog.github.io/carpetguide/" target="_blank" rel="noopener">
+      <img class="card-thumb"
+        src="https://fmemo75-prog.github.io/fatihmehmetcanitez/images/3.jpg"
+        alt="Türk Halı ve Kilimleri"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+      <div class="card-thumb-placeholder" style="display:none">🪆</div>
+      <div class="card-body">
+        <span class="card-tag">El Sanatı · Carpet Art</span>
+        <h3>Türk Halı &amp; Kilimleri<br><em style="font-size:0.95em;color:#7b3030">Turkish Carpets &amp; Kilims</em></h3>
+        <p>El dokuması sanat eserleri, motifler ve uzmanlık rehberi. Hand-woven masterpieces &amp; expert guidance.</p>
+        <span class="card-arrow">Koleksiyona Bak →</span>
+      </div>
+    </a>
+
+    <!-- YouTube -->
+    <a class="card culture" href="https://www.youtube.com/@fatihmehmetcantez" target="_blank" rel="noopener">
+      <img class="card-thumb"
+        src="https://fmemo75-prog.github.io/fatihmehmetcanitez/images/4.jpg"
+        alt="YouTube Kanalı"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+      <div class="card-thumb-placeholder" style="display:none">▶️</div>
+      <div class="card-body">
+        <span class="card-tag">YouTube · Channel</span>
+        <h3>Ders Kanalı<br><em style="font-size:0.95em;color:#2e5e4e">Lesson Channel</em></h3>
+        <p>Dil dersleri, kültür videoları ve daha fazlası. Language lessons, culture clips &amp; more.</p>
+        <span class="card-arrow">Kanala Git →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ── WhatsApp CTA ── -->
+  <div class="cta-banner">
+    <div class="cta-text">
+      <h3>Ders Almak İster misiniz?</h3>
+      <p>WhatsApp üzerinden hemen iletişime geçin · Contact via WhatsApp instantly</p>
+    </div>
+    <a class="cta-btn"
+      href="https://api.whatsapp.com/send/?phone=905054466760&text=Dil+dersleri+hakk%C4%B1nda+bilgi+istiyorum&type=phone_number&app_absent=0"
+      target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4C7.5 8 7 9 7 10.5c0 1.5 1.1 3 1.2 3.2.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.1-1.4-.1-.1-.3-.2-.6-.3zm-5.5 7.5h-.1c-1.8 0-3.6-.5-5.1-1.4L3 22l1.5-3.7C3.6 16.8 3 15 3 13.1 3 8.1 7.1 4 12 4c2.4 0 4.7 1 6.4 2.7A9 9 0 0 1 21 13c0 5-4.1 9-9 9zm0-18C6 3.5 1.5 8 1.5 13.5c0 2.1.6 4.1 1.8 5.8L2 22.5l3.4-1.3A10.5 10.5 0 0 0 12 23.5C17.8 23.5 22.5 18.8 22.5 13S17.8 2.5 12 2.5z"/></svg>
+      WhatsApp ile Yaz
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2025 <span class="gold">Fatih Mehmet Canıtez</span> · Nevşehir / Kapadokya · Türkiye</p>
+  <p style="margin-top:0.4rem">Dil Eğitmeni &amp; Kültürel Danışman · Language Educator &amp; Cultural Consultant</p>
+</footer>
 
 </body>
 </html>
